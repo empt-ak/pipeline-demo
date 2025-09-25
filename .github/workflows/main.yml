@@ -4,16 +4,24 @@ on:
   push:
     branches:
       - master
-      
+
+env:
+  GLOBAL: 'globvar'
+
 jobs:
-  cache_deps:
+  step1:
+    env:
+      STEP: stepvar
     name: Build and cache dependencies
     runs-on: ubuntu-latest
     steps:
-      - run: echo akoze maven dependency:go-offline
-  build_and_test:
-    name: Build and test application
-    needs: [cache_deps]
+      - run: "echo global: $GLOBAL, step: $STEP"
+  
+  step2:
+    env:
+      STEP: stepvar2
+    name: Build and test
     runs-on: ubuntu-latest
     steps:
-      - run: echo akoze mvn test -P test
+      - run: "echo global: $GLOBAL, step: $STEP"
+  
