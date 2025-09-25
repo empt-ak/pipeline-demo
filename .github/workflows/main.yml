@@ -6,9 +6,13 @@ on:
       - master
       
 jobs:
-  step1:
-    name: Moj prvy krok v pipeline
+  cache_deps:
+    name: Build and cache dependencies
     runs-on: ubuntu-latest
     steps:
-      - run: echo toto je prvy riadok v logoch
-      - run: echo toto je druhy riadok v logoch
+      - run: echo akoze maven dependency:go-offline
+   build_and_test:
+    name: Build and test application
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo akoze mvn test -P test
