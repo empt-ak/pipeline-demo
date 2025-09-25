@@ -1,0 +1,12 @@
+name: Moja prva pipeline
+
+on:
+  push:
+    branches:
+      - master
+      
+jobs:
+  step1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo yolo
