@@ -9,4 +9,5 @@ jobs:
   step1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo yolo
+      - run: echo toto je prvy riadok v logoch
+      - run: echo toto je druhy riadok v logoch
