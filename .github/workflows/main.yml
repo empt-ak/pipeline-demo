@@ -13,6 +13,7 @@ jobs:
       - run: echo akoze maven dependency:go-offline
   build_and_test:
     name: Build and test application
+    needs: [cache_deps]
     runs-on: ubuntu-latest
     steps:
       - run: echo akoze mvn test -P test
