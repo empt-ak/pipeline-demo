@@ -1,24 +1,23 @@
 name: Moja prva pipeline
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
 
 env:
   GLOBAL: 'globvar'
 
 jobs:
-  step1:
-    env:
-      STEP: stepvar
-    name: Build and cache dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - run: "echo global: $GLOBAL, step: $STEP"
-  
-  step2:
-    env:
-      STEP: stepvar2
-    name: Build and test
-    runs-on: ubuntu-latest
-    steps:
-      - run: "echo global: $GLOBAL, step: $STEP"
-  
+ log-inputs:
+  runs-on: ubuntu-latest
+  steps:
+    - run: "echo ${{ inputs.logLevel }}"
