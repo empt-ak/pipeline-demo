@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo akoze maven dependency:go-offline
-   build_and_test:
+  build_and_test:
     name: Build and test application
     runs-on: ubuntu-latest
     steps:
